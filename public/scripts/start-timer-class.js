@@ -40,6 +40,12 @@ export class StartTimer {
         let minutes = parseInt(this.firstTimer.minutes.valueElement.textContent, 10);
         let seconds = parseInt(this.firstTimer.seconds.valueElement.textContent, 10);
 
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+            console.log('First timer is set to 0. Skipping to second timer.');
+            this.handleSecondTimer();
+            return;
+        }
+
         this.timeInterval = setInterval(() => {
             if (seconds > 0) {
                 seconds--;
@@ -55,7 +61,6 @@ export class StartTimer {
                     }
                     else {
                         clearInterval(this.timeInterval);
-                        this.firstTimerFinished = true;
                         console.log('First timer finished!');
                         this.handleSecondTimer();
                         return;
@@ -74,6 +79,12 @@ export class StartTimer {
         let minutes = parseInt(this.secondTimer.minutes.valueElement.textContent, 10);
         let seconds = parseInt(this.secondTimer.seconds.valueElement.textContent, 10);
 
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+            console.log('Second timer is set to 0. Skipping to third timer.');
+            this.handleThirdTimer();
+            return;
+        }
+
         this.timeInterval = setInterval(() => {
             if (seconds > 0) {
                 seconds--;
@@ -89,9 +100,10 @@ export class StartTimer {
                     }
                     else {
                         clearInterval(this.timeInterval);
-                        this.secondTimerFinished = true;
                         console.log('Second timer finished!');
                         this.handleThirdTimer();
+                        
+
                         return;
                     }
                 }
@@ -108,6 +120,15 @@ export class StartTimer {
         let minutes = parseInt(this.thirdTimer.minutes.valueElement.textContent, 10);
         let seconds = parseInt(this.thirdTimer.seconds.valueElement.textContent, 10);
 
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+            console.log('Third timer is set to 0. All timers finished!');
+            this.showTimerValueControls();
+            this.enableStartTimer();
+            this.hideResetAndPauseTimers();
+            this.showFinishedMessage();
+            return;
+        }
+
         this.timeInterval = setInterval(() => {
             if (seconds > 0) {
                 seconds--;
@@ -123,14 +144,11 @@ export class StartTimer {
                     }
                     else {
                         clearInterval(this.timeInterval);
-                        this.thirdTimerFinished = true;
-                        if (this.firstTimerFinished && this.secondTimerFinished && this.thirdTimerFinished) {
                             this.showTimerValueControls();
                             this.enableStartTimer();
                             this.hideResetAndPauseTimers();
                             this.showFinishedMessage();
-                        }
-                        console.log('Third timer finished!');
+                            console.log('Third timer finished!')
                         return;
                     }
                 }
