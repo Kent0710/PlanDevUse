@@ -1,0 +1,30 @@
+.timer-section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.timer-section-content-label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.timer-section-content-label:focus {
+    outline: none;
+}
+
+
+.timer-section-content-countdown {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.timer-value {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}

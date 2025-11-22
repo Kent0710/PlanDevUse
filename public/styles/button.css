@@ -1,0 +1,51 @@
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.primary-btn {
+    background-color: #141517;
+    padding: 8px 16px;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.secondary-btn {
+    background-color: white;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    border: 2px solid #141517;
+}
+
+.muted-btn {
+    background-color: #f5f5f5;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.ghost-btn {
+    background-color: transparent;
+    color: rgb(113, 113, 113);
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.disabled-btn {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}

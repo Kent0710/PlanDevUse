@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh; /* full viewport height */
+    margin: 0;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* HEADER  */
+header {
+    gap: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    gap: 2rem;
+}
+
+main > section {
+    width: 33.33%;
+    border: 1px solid #e0e0e0;
+    padding: 2rem;
+    border-radius: 50px;
+}

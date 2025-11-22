@@ -1,0 +1,22 @@
+.sonner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sonner-content {
+    display: flex;
+    gap: 2rem;
+    border: 1px solid #ccc;
+    border-radius:44px;
+    padding: 20px 40px;
+}
+
+.close-sonner-btn {
+    background-color: #141517;
+    padding: 8px 16px;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+}
