@@ -12,6 +12,12 @@
     padding: 20px 40px;
 }
 
+
+.sonner-description {
+    font-size: 0.7rem;
+    color: #666;
+}
+
 .close-sonner-btn {
     background-color: #141517;
     padding: 8px 16px;

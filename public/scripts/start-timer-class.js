@@ -128,6 +128,7 @@ export class StartTimer {
                             this.showTimerValueControls();
                             this.enableStartTimer();
                             this.hideResetAndPauseTimers();
+                            this.showFinishedMessage();
                         }
                         console.log('Third timer finished!');
                         return;
@@ -258,10 +259,27 @@ export class StartTimer {
     }
 
     showFinishedMessage() {
-        const main = document.querySelector('main');
+        const body = document.querySelector('main');
         const message = document.createElement('div');
-        message.classList.add('finished-message');
-        message.textContent = 'All timers finished!';
-        main.appendChild(message);
+        message.classList.add('sonner-container')
+
+        message.innerHTML = `
+        <div class="sonner-content">
+        <div>
+    <p class="sonner-title"> Timer ended </p>
+    <p class="sonner-description"> Deploy what you built. </p>
+        </div>
+        <button class="close-sonner-btn"> Close </button>
+        </div>
+        `
+        body.appendChild(message);
+
+        // Add event listener to close button
+        const closeBtn = document.querySelector('.close-sonner-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                message.remove();
+            });
+        }
     }
 }
