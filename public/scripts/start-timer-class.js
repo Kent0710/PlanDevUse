@@ -16,8 +16,12 @@ export class StartTimer {
     handleStartTimer() {
         console.log("Timer started");
 
+        this.disableStartTimer();
+
         // First timer
         this.handleFirstTimer();
+
+
     };
 
     handleFirstTimer() {
@@ -40,6 +44,7 @@ export class StartTimer {
                     }
                     else {
                         clearInterval(this.timeInterval);
+                        this.firstTimerFinished = true;
                         console.log('First timer finished!');
                         this.handleSecondTimer();
                         return;
@@ -73,6 +78,7 @@ export class StartTimer {
                     }
                     else {
                         clearInterval(this.timeInterval);
+                        this.secondTimerFinished = true;
                         console.log('Second timer finished!');
                         this.handleThirdTimer();
                         return;
@@ -106,6 +112,10 @@ export class StartTimer {
                     }
                     else {
                         clearInterval(this.timeInterval);
+                        this.thirdTimerFinished = true;
+                        if (this.firstTimerFinished && this.secondTimerFinished && this.thirdTimerFinished) {
+                            this.enableStartTimer();
+                        }
                         console.log('Third timer finished!');
                         return;
                     }
@@ -116,5 +126,21 @@ export class StartTimer {
             this.thirdTimer.seconds.valueElement.textContent = seconds.toString().padStart(2, '0');
         }
             , 1000);
+    }
+
+    /**
+     * Disables the start timer button to prevent multiple clicks.
+     * 
+     */
+    disableStartTimer() {
+        this.startTimerBtn.disabled = true;
+        this.startTimerBtn.classList.add('disabled-btn');
+    }
+
+    enableStartTimer() {
+        if (this.startTimerBtn.disabled) {
+            this.startTimerBtn.disabled = false;
+            this.startTimerBtn.classList.remove('disabled-btn');
+        }
     }
 }
