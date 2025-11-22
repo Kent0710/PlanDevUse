@@ -16,6 +16,10 @@ export class StartTimer {
     handleStartTimer() {
         console.log("Timer started");
 
+        // Hide controsl that allows value up or down
+        this.hideTimerValueControls()
+
+
         this.disableStartTimer();
 
         // First timer
@@ -114,6 +118,7 @@ export class StartTimer {
                         clearInterval(this.timeInterval);
                         this.thirdTimerFinished = true;
                         if (this.firstTimerFinished && this.secondTimerFinished && this.thirdTimerFinished) {
+                            this.showTimerValueControls();
                             this.enableStartTimer();
                         }
                         console.log('Third timer finished!');
@@ -128,10 +133,58 @@ export class StartTimer {
             , 1000);
     }
 
-    /**
-     * Disables the start timer button to prevent multiple clicks.
-     * 
-     */
+    hideTimerValueControls() {
+        // First Timer
+        this.firstTimer.hours.upBtn.style.display = "none";
+        this.firstTimer.hours.downBtn.style.display = "none";
+        this.firstTimer.minutes.upBtn.style.display = "none";
+        this.firstTimer.minutes.downBtn.style.display = "none";
+        this.firstTimer.seconds.upBtn.style.display = "none";
+        this.firstTimer.seconds.downBtn.style.display = "none";
+
+        // Second Timer
+        this.secondTimer.hours.upBtn.style.display = "none";
+        this.secondTimer.hours.downBtn.style.display = "none";
+        this.secondTimer.minutes.upBtn.style.display = "none";
+        this.secondTimer.minutes.downBtn.style.display = "none";
+        this.secondTimer.seconds.upBtn.style.display = "none";
+        this.secondTimer.seconds.downBtn.style.display = "none";
+
+        // Third Timer
+        this.thirdTimer.hours.upBtn.style.display = "none";
+        this.thirdTimer.hours.downBtn.style.display = "none";
+        this.thirdTimer.minutes.upBtn.style.display = "none";
+        this.thirdTimer.minutes.downBtn.style.display = "none";
+        this.thirdTimer.seconds.upBtn.style.display = "none";
+        this.thirdTimer.seconds.downBtn.style.display = "none";
+    }
+
+    showTimerValueControls() {
+        // First Timer
+        this.firstTimer.hours.upBtn.style.display = "";
+        this.firstTimer.hours.downBtn.style.display = "";
+        this.firstTimer.minutes.upBtn.style.display = "";
+        this.firstTimer.minutes.downBtn.style.display = "";
+        this.firstTimer.seconds.upBtn.style.display = "";
+        this.firstTimer.seconds.downBtn.style.display = "";
+
+        // Second Timer
+        this.secondTimer.hours.upBtn.style.display = "";
+        this.secondTimer.hours.downBtn.style.display = "";
+        this.secondTimer.minutes.upBtn.style.display = "";
+        this.secondTimer.minutes.downBtn.style.display = "";
+        this.secondTimer.seconds.upBtn.style.display = "";
+        this.secondTimer.seconds.downBtn.style.display = "";
+
+        // Third Timer
+        this.thirdTimer.hours.upBtn.style.display = "";
+        this.thirdTimer.hours.downBtn.style.display = "";
+        this.thirdTimer.minutes.upBtn.style.display = "";
+        this.thirdTimer.minutes.downBtn.style.display = "";
+        this.thirdTimer.seconds.upBtn.style.display = "";
+        this.thirdTimer.seconds.downBtn.style.display = "";
+    }
+
     disableStartTimer() {
         this.startTimerBtn.disabled = true;
         this.startTimerBtn.classList.add('disabled-btn');
