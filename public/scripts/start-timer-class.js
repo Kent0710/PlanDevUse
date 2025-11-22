@@ -16,6 +16,9 @@ export class StartTimer {
     handleStartTimer() {
         console.log("Timer started");
 
+        this.hideResetAndPauseTimers();
+
+
         // Hide controsl that allows value up or down
         this.hideTimerValueControls()
 
@@ -188,7 +191,7 @@ export class StartTimer {
         this.thirdTimer.seconds.upBtn.style.display = "";
         this.thirdTimer.seconds.downBtn.style.display = "";
     }
-    
+
     showPauseTimer() {
         const pauseTimerBtn = document.createElement('button');
         pauseTimerBtn.classList.add('secondary-btn', 'pause-timer-btn');
@@ -198,7 +201,8 @@ export class StartTimer {
             clearInterval(this.timeInterval);
             this.enableStartTimer();
             this.showTimerValueControls();
-            pauseTimerBtn.remove();
+            this.hideResetAndPauseTimers();
+
         });
 
     }
@@ -213,7 +217,8 @@ export class StartTimer {
             clearInterval(this.timeInterval);
             this.enableStartTimer();
             this.showTimerValueControls();
-            resetTimerBtn.remove();
+            this.hideResetAndPauseTimers();
+
 
             // Clear values
             this.firstTimer.hours.valueElement.textContent = '00';
@@ -226,6 +231,17 @@ export class StartTimer {
             this.thirdTimer.minutes.valueElement.textContent = '00';
             this.thirdTimer.seconds.valueElement.textContent = '00';
         });
+    }
+
+    hideResetAndPauseTimers() {
+        const pauseTimerBtn = document.querySelector('.pause-timer-btn');
+        const resetTimerBtn = document.querySelector('.reset-timer-btn');
+        if (pauseTimerBtn) {
+            pauseTimerBtn.remove();
+        }
+        if (resetTimerBtn) {
+            resetTimerBtn.remove();
+        }
     }
 
     disableStartTimer() {
